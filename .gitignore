@@ -1,0 +1,7 @@
+.idea/*
+vendor/*
+report/*
+/test/data/*
+/test/report/*
+composer.lock
+composer.phar
