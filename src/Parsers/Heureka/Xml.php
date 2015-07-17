@@ -135,8 +135,8 @@ class Xml
             $objItem->setProductNo($item->getElementsByTagName('PRODUCTNO')->item(0)->nodeValue);
 
             $paramList = $item->getElementsByTagName('PARAM');
-            if( $paramList->length > 0 ){
-                foreach( $paramList as $p ) {
+            if ($paramList->length > 0) {
+                foreach ($paramList as $p) {
                     $objItemParams = new ItemParam();
                     $objItemParams->setParamName($p->getElementsByTagName('PARAM_NAME')->item(0)->nodeValue);
                     $objItemParams->setVal($p->getElementsByTagName('VAL')->item(0)->nodeValue);
@@ -148,8 +148,8 @@ class Xml
             $objItem->setDeliveryDate($item->getElementsByTagName('DELIVERY_DATE')->item(0)->nodeValue);
 
             $deliveryList = $item->getElementsByTagName('DELIVERY');
-            if( $deliveryList->length > 0 ){
-                foreach( $deliveryList as $p ) {
+            if ($deliveryList->length > 0) {
+                foreach ($deliveryList as $p) {
                     $objItemDelivery = new ItemDelivery();
                     $objItemDelivery->setDeliveryId($p->getElementsByTagName('DELIVERY_ID')->item(0)->nodeValue);
                     $objItemDelivery->setDeliveryPrice($p->getElementsByTagName('DELIVERY_PRICE')->item(0)->nodeValue);
@@ -162,10 +162,9 @@ class Xml
             $objItem->setItemGroupId($item->getElementsByTagName('ITEMGROUP_ID')->item(0)->nodeValue);
             $objItem->setAccessory($item->getElementsByTagName('ACCESSORY')->item(0)->nodeValue);
 
-            if( is_callable($callback) ){
+            if (is_callable($callback)) {
                 $callback($objItem);
-            }
-            else{
+            } else {
                 $out[] = $objItem;
             }
         }
@@ -182,7 +181,7 @@ class Xml
 
     private function encode($xml)
     {
-        if( $this->encode ) {
+        if ($this->encode) {
             return iconv($this->getInputEncoding(), $this->getOutputEncoding(), $xml);
         }
         return $xml;

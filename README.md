@@ -25,7 +25,7 @@ Now call ->parse() method and pass necessary parameters.
 
 ```
 $xml = '../test/data/feed.xml';
-$classParser->parse($xml) );
+$classParser->parse($xml);
 ```
 
 or pass your own function/class method as a second parameter to process imediatelly each item

@@ -40,7 +40,7 @@ class ApiTest extends PHPUnit_Framework_TestCase
     //Test Items
     public function testParser()
     {
-        $this->classParser->parse($this->xmlFeed, array($this,'getItemIdFromItem0'));
+        $this->classParser->parse($this->xmlFeed, array($this, 'getItemIdFromItem0'));
     }
 
     //Test Items
