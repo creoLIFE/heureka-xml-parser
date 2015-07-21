@@ -11,12 +11,18 @@ header( 'Content-Type: text/html; charset=UTF-8' );
 ERROR_REPORTING(E_ALL);
 require __DIR__ . "/../src/loader.php";
 
-print_r(ini_get('memory_limit')."\n");
-set_time_limit(1200);
-date_default_timezone_set('UTC');
-
 //Data files
 $xml = '../test/data/feed.xml';
+$xml = 'http://www.snhk.cz/storage/files/915/heureka.cz.xml';
+$xml = 'http://www.nbb.cz/heureka.xml';
+
+$timeLimit = 1200;
+
+echo "Memory limit: \n";
+print_r(ini_get('memory_limit')."\n");
+echo "Time limit: ".$timeLimit."\n";
+set_time_limit(1200);
+date_default_timezone_set('UTC');
 
 //Instance of parser
 $classParser = new Parsers\Heureka\Xml();

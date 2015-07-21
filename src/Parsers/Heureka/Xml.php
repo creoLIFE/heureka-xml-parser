@@ -124,15 +124,15 @@ class Xml
             $objItem->setProductName($item->getElementsByTagName('PRODUCTNAME')->item(0)->nodeValue);
             $objItem->setProduct($item->getElementsByTagName('PRODUCT')->item(0)->nodeValue);
             $objItem->setDescription($item->getElementsByTagName('DESCRIPTION')->item(0)->nodeValue);
-            $objItem->setUrl($item->getElementsByTagName('URL')->item(0)->nodeValue);
-            $objItem->setImgUrl($item->getElementsByTagName('IMGURL')->item(0)->nodeValue);
-            $objItem->setImgUrlAlternative($item->getElementsByTagName('IMGURL_ALTERNATIVE')->item(0)->nodeValue);
-            $objItem->setVideoUrl($item->getElementsByTagName('VIDEO_URL')->item(0)->nodeValue);
+            $objItem->setUrl(isset($item->getElementsByTagName('URL')->item(0)->nodeValue) ? $item->getElementsByTagName('URL')->item(0)->nodeValue : null);
+            $objItem->setImgUrl(isset($item->getElementsByTagName('IMGURL')->item(0)->nodeValue) ? $item->getElementsByTagName('IMGURL')->item(0)->nodeValue : null);
+            $objItem->setImgUrlAlternative(isset($item->getElementsByTagName('IMGURL_ALTERNATIVE')->item(0)->nodeValue) ? $item->getElementsByTagName('IMGURL_ALTERNATIVE')->item(0)->nodeValue : null);
+            $objItem->setVideoUrl(isset($item->getElementsByTagName('VIDEO_URL')->item(0)->nodeValue) ? $item->getElementsByTagName('VIDEO_URL')->item(0)->nodeValue : null);
             $objItem->setPriceVat($item->getElementsByTagName('PRICE_VAT')->item(0)->nodeValue);
-            $objItem->setHeurekaCpc($item->getElementsByTagName('HEUREKA_CPC')->item(0)->nodeValue);
-            $objItem->setManufacturer($item->getElementsByTagName('MANUFACTURER')->item(0)->nodeValue);
-            $objItem->setEan($item->getElementsByTagName('EAN')->item(0)->nodeValue);
-            $objItem->setProductNo($item->getElementsByTagName('PRODUCTNO')->item(0)->nodeValue);
+            $objItem->setHeurekaCpc(isset($item->getElementsByTagName('HEUREKA_CPC')->item(0)->nodeValue) ? $item->getElementsByTagName('HEUREKA_CPC')->item(0)->nodeValue : 0);
+            $objItem->setManufacturer(isset($item->getElementsByTagName('MANUFACTURER')->item(0)->nodeValue) ? $item->getElementsByTagName('MANUFACTURER')->item(0)->nodeValue : null);
+            $objItem->setEan(isset($item->getElementsByTagName('EAN')->item(0)->nodeValue) ? $item->getElementsByTagName('EAN')->item(0)->nodeValue : null);
+            $objItem->setProductNo(isset($item->getElementsByTagName('PRODUCTNO')->item(0)->nodeValue) ? $item->getElementsByTagName('PRODUCTNO')->item(0)->nodeValue : null);
 
             $paramList = $item->getElementsByTagName('PARAM');
             if ($paramList->length > 0) {
@@ -159,8 +159,8 @@ class Xml
                 }
             }
 
-            $objItem->setItemGroupId($item->getElementsByTagName('ITEMGROUP_ID')->item(0)->nodeValue);
-            $objItem->setAccessory($item->getElementsByTagName('ACCESSORY')->item(0)->nodeValue);
+            $objItem->setItemGroupId(isset($item->getElementsByTagName('ITEMGROUP_ID')->item(0)->nodeValue) ? $item->getElementsByTagName('ITEMGROUP_ID')->item(0)->nodeValue : null);
+            $objItem->setAccessory(isset($item->getElementsByTagName('ACCESSORY')->item(0)->nodeValue) ? $item->getElementsByTagName('ACCESSORY')->item(0)->nodeValue : null);
 
             if (is_callable($callback)) {
                 $callback($objItem);
